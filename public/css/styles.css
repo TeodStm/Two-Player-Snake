@@ -1,0 +1,85 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  display: flex;
+}
+
+#game_grid {
+  margin: 0 0 0 10vw;
+  /*width: ;  set with js on init.js file*/
+  position: relative;
+  top: 15vh;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.find_game {
+  position: relative;
+  padding: 7vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  top: 6em;
+  text-align: center;
+  font-size: 150%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.find_game button {
+  text-decoration: none;
+  color: darkgreen;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 5vh;
+  padding: 2vh;
+  cursor: pointer;
+}
+
+.find_game input {
+  padding: 1vh;
+}
+
+h1 {
+  position: relative;
+  top: 50px;
+  text-align: center;
+}
+
+.players {
+  position: relative;
+  width: 15vw;
+  /*height: 48vh;*/
+  top: 15vh;
+  text-align: center;
+  margin-left: 3%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.player_info {
+  width: 15vw;
+  text-align: center;
+  margin: 4em 0;
+  padding: 5px 0;
+  font-size: larger;
+}
+
+#player1 h3 {
+  padding: 2px 0;
+  background-color: rgba(17, 230, 237);
+  color: white;
+}
+
+#player2 h3 {
+  padding: 2px 0;
+  background-color: rgb(196, 8, 61);
+  color: white;
+}
