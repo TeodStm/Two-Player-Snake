@@ -14,26 +14,27 @@ function userJoin(user_id, username){
             full: false
         };
         matches.push(match);
-        rooms[user_id] = room_id;
+        //rooms[user_id] = room_id;
+        rooms[user_id] = {room_id, username, index:matches.length-1};
         room_id += 1;
-        return {room:rooms[user_id], full:false, opponent: ""};
+        return {room:rooms[user_id].room_id, full:false, opponent: ""};
     }
 
     // join user to last room where is one user already
     matches[matches.length-1].username2 = username;
     matches[matches.length-1].user_id2 = user_id;
     matches[matches.length-1].full = true;
-    rooms[user_id] = matches[matches.length-1].room_id;
-    return {room: rooms[user_id], full: true, opponent: matches[matches.length-1].username1};
+    //rooms[user_id] = matches[matches.length-1].room_id;
+    rooms[user_id] = {room_id: matches[matches.length-1].room_id, username, index:matches.length-1};
+    return {room: rooms[user_id].room_id, full: true, opponent: matches[matches.length-1].username1};
 }
 
 function userRoom(user_id){
-    return rooms[user_id];
+    return rooms[user_id].room_id;
 }
 
 function userLeaves(user_id){
-    //delete games[rooms[user_id]];
-    delete rooms[user_id];
+
 
     for(let i = 0; i < matches.length; i++){
         if(matches[i].user_id1 == user_id){
@@ -59,6 +60,9 @@ function userLeaves(user_id){
             break;
         }
     }
+    //delete games[rooms[user_id]];
+    delete rooms[user_id];
 }
 
-module.exports = {matches, games, userJoin, userRoom, userLeaves}
+
+module.exports = {matches, games, rooms, userJoin, userRoom, userLeaves}

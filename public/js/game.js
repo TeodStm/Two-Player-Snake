@@ -1,5 +1,6 @@
 const GRID_WIDTH = 50;
 const GRID_HEIGHT = 30;
+const MAX_SCORE = 3;
 
 class Game {
     constructor(socket_id) {
@@ -8,13 +9,13 @@ class Game {
       this.food_array = [];
       this.active = false;
   
-      let food1 = new Food(37, 14);
+      let food1 = new Food(37, 24);
       let snake1 = new Snake([20,15]);
       this.score1 = 0;
       this.snake_index = 0;
       this.enemy_index = 1;
   
-      let food2 = new Food(12, 14);
+      let food2 = new Food(12, 24);
       let snake2 = new Snake([30,15]);
       this.score2 = 0;
   
@@ -26,7 +27,9 @@ class Game {
 
       this.socket_to_index = {};
       this.socket_to_index[socket_id] = 0;
-  
+
+      this.winnerIndex = -1;
+      this.maxScore = MAX_SCORE;
       this.start = true; ////++++++++++++++++++++
     }
   }
@@ -121,6 +124,21 @@ function createNextGameState(game){
     
     if(player1.eats) game.score1 += 1;
     if(player2.eats) game.score2 += 1;
+
+    //check for win
+    if(game.score1 == game.maxScore){
+        if(game.score2 == game.maxScore) winner = 3; // both have max score
+        else {
+            winner = 1;
+            winnerIndex = 0;
+        }
+        game.active = false;
+    }
+    else if(game.score2 == game.maxScore){
+        winner = 2;
+        winnerIndex = 1;
+        game.active = false;
+    }
 
     return {
         snake1: game.snakes_array[0].snake_body,
