@@ -7,24 +7,28 @@
   <body>
 
     <h1>Double Snake</h1>
-  <div id="content">
-    <div class="players">
-      <h2>SCORE</h2>
-      <div class="player_info" id="player1">
-        <h3 id="user1">User 1</h3>
-        <p id="score1" style="font-size: larger;">0</p>
-      </div>
-  
-      <div class="player_info" id="player2">
-        <h3 id="user2">User 2</h3>
-        <p id="score2" style="font-size: larger;">0</p>
-      </div>
-    </div>
+    <p id="winnerName">Waiting for opponent...</p>
 
-    <div id="game_grid">
-      <canvas id="canvas"></canvas>
+    <div id="content">
+      <div class="players">
+        <h2>SCORE</h2>
+        <hr>
+        <div class="player_info" id="player1">
+          <h3 id="user1">User 1</h3>
+          <p id="score1" style="font-size: larger;">0</p>
+        </div>
+    
+        <div class="player_info" id="player2">
+          <h3 id="user2">User 2</h3>
+          <p id="score2" style="font-size: larger;">0</p>
+        </div>
+      </div>
+
+      
+      <div id="game_grid">
+        <canvas id="canvas"></canvas>
+      </div>
     </div>
-  </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js"
     integrity="sha512-BHtomM5XDcUy7tDNcrcX1Eh0RogdWiMdXl3wJcKB3PFekXb3l5aDzymaTher61u6vEZySnoC/SAj2Y/p918Y3w=="
